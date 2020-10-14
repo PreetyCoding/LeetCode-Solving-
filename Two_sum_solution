@@ -1,0 +1,33 @@
+//Code 1 O(n2) notation
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] sums = new int[2];
+        for(int i=0;i<nums.length-1;i++){
+            for(int j =i+1;j<nums.length;j++){
+            if(nums[i]+nums[j]==target){
+                sums[0]=i;
+                sums[1] = j;
+                break;
+            }
+        }
+        }
+        return sums;
+    }
+}
+
+Code 2//O(n)
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer,Integer> sums = new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            sums.put(nums[i],i);
+        }
+        for(int i =0;i<nums.length;i++){
+            if(sums.containsKey(target - nums[i]) && sums.get(target - nums[i])!=i){
+                return new int[]{i,sums.get(target - nums[i])};
+            }
+            
+        }
+        return new int[]{0,0};
+    }
+}
